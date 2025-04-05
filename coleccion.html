@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colección - Minerva</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Minerva</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="coleccion.html">Colección</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="novedades.html">Novedades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inspiracion.html">Inspiración</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Colección Section -->
+    <section class="container my-5">
+        <h2>Nueva Colección</h2>
+        <div class="filters mb-3">
+            <button class="btn btn-primary filter-button" data-filter="todos">Todos</button>
+            <button class="btn btn-secondary filter-button" data-filter="bodas">Bodas</button>
+            <button class="btn btn-secondary filter-button" data-filter="coctel">Cóctel</button>
+            <button class="btn btn-secondary filter-button" data-filter="fiesta">Fiesta</button>
+        </div>
+
+        <div class="row" id="products-container">
+            <!-- Producto: Vestido Aurora (Bodas) -->
+            <div class="col-md-4 product-card" data-category="bodas">
+                <div class="card">
+                    <img src="https://noviasselect.es/wp-content/uploads/vestido-novia-victoria-coleccion-mod-XILVINA-1.jpg"
+                        class="card-img-top" alt="Vestido Victoria">
+                    <div class="card-body">
+                        <h5 class="card-title">Vestido Victoria</h5>
+                        <p class="card-text">€389</p>
+                        <a href="producto-detalle.html" class="btn btn-secondary">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Vestido Victoria (Cóctel) -->
+            <div class="col-md-4 product-card" data-category="coctel">
+                <div class="card">
+                    <img src="https://i0.wp.com/laraliz.com/wp-content/uploads/2024/11/EB01782DG-R.webp?fit=500%2C667&ssl=1"
+                        class="card-img-top" alt="Vestido Rosalia">
+                    <div class="card-body">
+                        <h5 class="card-title">Vestido Rosalia</h5>
+                        <p class="card-text">€279</p>
+                        <a href="producto-detalle.html" class="btn btn-secondary">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Vestido Rosalía (Fiesta) -->
+            <div class="col-md-4 product-card" data-category="fiesta">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80"
+                        class="card-img-top" alt="Vestido Aurora">
+                    <div class="card-body">
+                        <h5 class="card-title">Vestido Aurora</h5>
+                        <p class="card-text">€459</p>
+                        <a href="producto-detalle.html" class="btn btn-secondary">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Vestido Elena (Bodas) -->
+            <div class="col-md-4 product-card" data-category="bodas">
+                <div class="card">
+                    <img src="https://i.wdb.im/products/EN-602-1.2000x3000w.jpg"
+                        class="card-img-top" alt="Vestido Elena">
+                    <div class="card-body">
+                        <h5 class="card-title">Vestido Elena</h5>
+                        <p class="card-text">€349</p>
+                        <a href="producto-detalle.html" class="btn btn-secondary">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Vestido Clara (Cóctel) -->
+            <div class="col-md-4 product-card" data-category="coctel">
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/81M4WaAn+BL.jpg"
+                        class="card-img-top" alt="Vestido Clara">
+                    <div class="card-body">
+                        <h5 class="card-title">Vestido Clara</h5>
+                        <p class="card-text">€389</p>
+                        <a href="producto-detalle.html" class="btn btn-secondary">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto: Vestido Sofia (Fiesta) -->
+            <div class="col-md-4 product-card" data-category="fiesta">
+                <div class="card">
+                    <img src="https://www.altagraciacouture.com/cdn/shop/products/elektra1_60e00cce-37ee-4efe-9282-edf68f1351fc.png?v=1700236666&width=1000"
+                        class="card-img-top" alt="Vestido Sofia">
+                    <div class="card-body">
+                        <h5 class="card-title">Vestido Sofia</h5>
+                        <p class="card-text">€399</p>
+                        <a href="producto-detalle.html" class="btn btn-secondary">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light p-4 text-center">
+        <p>© 2024 Minerva. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script de filtro de productos -->
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-button');
+        const products = document.querySelectorAll('.product-card');
+
+        // Filtrar productos
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+
+                // Mostrar todos los productos si el filtro es "todos"
+                products.forEach(product => {
+                    if (filter === 'todos' || product.getAttribute('data-category') === filter) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+
+                // Actualizar estilos de los botones
+                filterButtons.forEach(btn => btn.classList.remove('btn-primary'));
+                button.classList.add('btn-primary');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

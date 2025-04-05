@@ -4,59 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Minerva</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    maxWidth: {
+                        '7xl': '80rem',
+                    },
+                },
+            },
+        }
+    </script>
 </head>
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Minerva</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="coleccion.html">Colección</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="novedades.html">Novedades</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="inspiracion.html">Inspiración</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="contacto.html">Contacto</a>
-                    </li>
-                </ul>
+<body class="min-h-screen bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="/" class="text-2xl font-bold text-emerald-600">Minerva</a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="/coleccion.html" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Colección</a>
+                        <a href="/novedades.html" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Novedades</a>
+                        <a href="/inspiracion.html" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Inspiración</a>
+                        <a href="/contacto.html" class="text-emerald-600 px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Contacto</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
-    <section class="container my-5">
-        <h2>Informaciones</h2>
-        <p>Para más información o para adquirir nuestros productos, por favor contacta a nuestros vendedores:</p>
-        <ul>
-            <li>
-                <strong>Luciana Coca</strong> - 
-                <a href="https://wa.me/79736261" target="_blank">Contactar por WhatsApp</a>
-            </li>
-            <li>
-                <strong>Juan Caballero</strong> - 
-                <a href="https://wa.me/63862922" target="_blank">Contactar por WhatsApp</a>
-            </li>
-            <li>
-                <strong>Vania Zurita</strong> - 
-                <a href="https://wa.me/77946936" target="_blank">Contactar por WhatsApp</a>
-            </li>
-        </ul>
-    </section>
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-b from-emerald-50 to-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
+                    Contacta con Nosotros
+                </h1>
+                <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                    Estamos aquí para ayudarte. Nuestro equipo de vendedores está listo para atender todas tus consultas.
+                </p>
+            </div>
+        </div>
+    </div>
 
-    <footer class="bg-light p-4 text-center">
-        <p>© 2024 Minerva. Todos los derechos reservados.</p>
+    <!-- Contact Cards Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Contact Card 1 -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center space-x-4">
+                    <div class="h-12 w-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="message-circle" class="h-6 w-6 text-emerald-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Luciana Coca</h3>
+                        <a href="https://wa.me/79736261" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-emerald-600 hover:text-emerald-700 transition-colors duration-200">
+                            <span>Contactar por WhatsApp</span>
+                            <i data-lucide="phone" class="h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Card 2 -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center space-x-4">
+                    <div class="h-12 w-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="message-circle" class="h-6 w-6 text-emerald-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Juan Caballero</h3>
+                        <a href="https://wa.me/63862922" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-emerald-600 hover:text-emerald-700 transition-colors duration-200">
+                            <span>Contactar por WhatsApp</span>
+                            <i data-lucide="phone" class="h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Card 3 -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center space-x-4">
+                    <div class="h-12 w-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="message-circle" class="h-6 w-6 text-emerald-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Vania Zurita</h3>
+                        <a href="https://wa.me/77946936" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-emerald-600 hover:text-emerald-700 transition-colors duration-200">
+                            <span>Contactar por WhatsApp</span>
+                            <i data-lucide="phone" class="h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Contact Information -->
+        <div class="mt-16 bg-white rounded-lg shadow-md p-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Información Adicional</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="flex items-center space-x-4">
+                    <div class="h-12 w-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="mail" class="h-6 w-6 text-emerald-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-medium text-gray-900">Email</h3>
+                        <p class="text-gray-600">contacto@minerva.com</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="h-12 w-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="phone" class="h-6 w-6 text-emerald-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-medium text-gray-900">Teléfono</h3>
+                        <p class="text-gray-600">+591 2 123 4567</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="h-12 w-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="map-pin" class="h-6 w-6 text-emerald-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-medium text-gray-900">Dirección</h3>
+                        <p class="text-gray-600">La Paz, Bolivia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-16">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-gray-500 text-sm">
+                © 2024 Minerva. Todos los derechos reservados.
+            </p>
+        </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>

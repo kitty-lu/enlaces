@@ -9,7 +9,11 @@ app = Flask(__name__)
 
 # Configuration
 app.secret_key = os.environ.get("SECRET_KEY", "minerva_dev_key_fallback")
+
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///vestidos.db")
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///minerva.db")
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize extensions
@@ -315,73 +319,49 @@ def internal_error(error):
     db.session.rollback()
     return render_template('500.html'), 500
 
-# Initialize database
-@app.before_first_request
-def create_tables():
-    db.create_all()
-    
-    # Create sample products if none exist
-    if Producto.query.count() == 0:
-        sample_products = [
-            Producto(
-                nombre='Vestido Victoria',
-                precio=389.0,
-                categoria='bodas',
-                descripcion='Elegante vestido de novia con encaje y pedrería',
-                imagen_url='https://noviasselect.es/wp-content/uploads/vestido-novia-victoria-coleccion-mod-XILVINA-1.jpg',
-                stock_xs=3, stock_s=5, stock_m=1, stock_l=0
-            ),
-            Producto(
-                nombre='Vestido Rosalia',
-                precio=279.0,
-                categoria='coctel',
-                descripcion='Elegante vestido de cóctel con diseño moderno',
-                imagen_url='https://i0.wp.com/laraliz.com/wp-content/uploads/2024/11/EB01782DG-R.webp?fit=500%2C667&ssl=1',
-                stock_xs=2, stock_s=4, stock_m=3, stock_l=1
-            ),
-            Producto(
-                nombre='Vestido Aurora',
-                precio=459.0,
-                categoria='fiesta',
-                descripcion='Deslumbrante vestido de fiesta con detalles brillantes',
-                imagen_url='https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80',
-                stock_xs=0, stock_s=6, stock_m=4, stock_l=1
-            ),
-            Producto(
-                nombre='Vestido Elena',
-                precio=349.0,
-                categoria='bodas',
-                descripcion='Vestido de novia con diseño romántico y delicado',
-                imagen_url='https://i.wdb.im/products/EN-602-1.2000x3000w.jpg',
-                stock_xs=4, stock_s=3, stock_m=1, stock_l=2
-            ),
-            Producto(
-                nombre='Vestido Clara',
-                precio=389.0,
-                categoria='coctel',
-                descripcion='Elegante vestido de cóctel con un diseño moderno',
-                imagen_url='https://m.media-amazon.com/images/I/81M4WaAn+BL.jpg',
-                stock_xs=2, stock_s=1, stock_m=4, stock_l=0
-            ),
-            Producto(
-                nombre='Vestido Sofia',
-                precio=399.0,
-                categoria='fiesta',
-                descripcion='Espectacular vestido de fiesta con diseño contemporáneo',
-                imagen_url='https://www.altagraciacouture.com/cdn/shop/products/elektra1_60e00cce-37ee-4efe-9282-edf68f1351fc.png?v=1700236666&width=1000',
-                stock_xs=1, stock_s=3, stock_m=5, stock_l=2
-            )
-        ]
-        
-        for product in sample_products:
-            db.session.add(product)
-        
-        try:
-            db.session.commit()
-            print("Sample products created successfully!")
-        except Exception as e:
-            db.session.rollback()
-            print(f"Error creating sample products: {e}")
+# Variable para evitar que se creen tablas múltiples veces
+tables_initialized = False
 
-if __name__ == '__main__':
-    app.run(debug=True)
+@app.before_request
+def initialize_tables():
+    global tables_initialized
+    if not tables_initialized:
+        db.create_all()
+        # Crear productos de ejemplo si no existen
+        if Producto.query.count() == 0:
+            sample_products = [
+                Producto(
+                    nombre='Vestido Victoria',
+                    precio=389.0,
+                    categoria='bodas',
+                    descripcion='Elegante vestido de novia con encaje y pedrería',
+                    imagen_url='https://noviasselect.es/wp-content/uploads/vestido-novia-victoria-coleccion-mod-XILVINA-1.jpg',
+                    stock_xs=3, stock_s=5, stock_m=1, stock_l=0
+                ),
+                Producto(
+                    nombre='Vestido Rosalia',
+                    precio=279.0,
+                    categoria='coctel',
+                    descripcion='Elegante vestido de cóctel con diseño moderno',
+                    imagen_url='https://i0.wp.com/laraliz.com/wp-content/uploads/2024/11/EB01782DG-R.webp?fit=500%2C667&ssl=1',
+                    stock_xs=2, stock_s=4, stock_m=3, stock_l=1
+                ),
+                Producto(
+                    nombre='Vestido Aurora',
+                    precio=459.0,
+                    categoria='fiesta',
+                    descripcion='Deslumbrante vestido de fiesta con detalles brillantes',
+                    imagen_url='https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80',
+                    stock_xs=0, stock_s=6, stock_m=4, stock_l=1
+                )
+            ]
+            for product in sample_products:
+                db.session.add(product)
+            try:
+                db.session.commit()
+                print("Sample products created successfully!")
+            except Exception as e:
+                db.session.rollback()
+                print(f"Error creating sample products: {e}")
+        
+        tables_initialized = True
